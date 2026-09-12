@@ -1,84 +1,171 @@
-# Portfolio — Rohith Pranov
+Portfolio — Abdullah
 
 A cinematic, scroll-driven personal portfolio built on Next.js 16 (App Router), React 19, Tailwind CSS v4, GSAP ScrollTrigger, Framer Motion, Lenis smooth-scroll, Three.js / Spline, and a handful of custom WebGL shaders. Designed to read like an editorial spread on desktop and to keep its rhythm intact on mobile, with every section choreographed against a single scroll timeline.
 
 The site is deliberately heavy on motion and light on chrome: there is no navigation bar, no fold; the experience is the scroll. Each "chapter" introduces itself with a full-bleed curtain, plays a dedicated micro-scene, and hands the user off to the next chapter via a custom transition (warp portal, fold, zoom-parallax, tilted grid).
 
----
+Live deploy
 
-## Live deploy
+Deployed on Vercel from the main branch. Push-to-deploy. Static prerendering for the single route (/) plus on-demand image optimization through next/image.
 
-Deployed on Vercel from the `main` branch. Push-to-deploy. Static prerendering for the single route (`/`) plus on-demand image optimization through `next/image`.
+Tech stack
 
----
+Layer
 
-## Tech stack
+Library / Tool
 
-| Layer | Library / Tool | Version | Why it's here |
-|---|---|---|---|
-| Framework | Next.js | 16.2.6 (App Router, Turbopack) | Static prerender of the single page, image optimization pipeline, font subsetting, route-level code splitting |
-| UI runtime | React | 19.2.4 | Server Components for the root page; Client Components for every scroll-driven scene |
-| Language | TypeScript | 5.x (strict) | All app code is `.tsx` / `.ts` under `strict: true` |
-| Styling | Tailwind CSS | 4.x | Utility-first; theming via `@theme` tokens in `globals.css` |
-| Component primitives | shadcn/ui, Radix | — | Buttons, dialog, tabs, sheet, switch, label |
-| Scroll engine | Lenis | 1.3.23 | RAF-driven smooth scroll piped into GSAP's ticker so every ScrollTrigger reads from the same time source |
-| Macro animation | GSAP + ScrollTrigger | 3.15 | Pinning, scrub, timeline choreography (FrameToFullscreen, ScrollWarpPortal, ScrollFoldTransition, ScrollRevealCurtain) |
-| Micro animation | Framer Motion | 12.38 | Component-level enter/exit, cursor spring, hero parallax, modals |
-| 3D scene | Spline (@splinetool/react-spline) | 4.1 | The "Built Different" hero scene |
-| WebGL shader | ogl | 1.0.11 | Custom light-rays fragment shader behind the design carousel |
-| 3D primitives | three, @react-three/fiber, @react-three/drei | 0.184 / 9.6 / 10.7 | Available for future scenes |
-| Carousel | Swiper | 12.1 | Design carousel slider |
-| Fonts | `next/font/google` — Cormorant Garamond, DM Sans | — | Two weights of Cormorant for display, three of DM Sans for body, all served via the Vercel font CDN |
+Version
 
----
+Why it's here
 
-## What's on the page
+Framework
 
-The single route at `/` is composed of these scenes, in order, all rendered as static HTML on first paint and progressively hydrated:
+Next.js
 
-1. **`FrameToFullscreen` → `VSCodePortfolio`**
-   GSAP pin + perspective tilt that lifts a miniature VS Code window from the page and flattens it into the viewport. The IDE is a full replica — Mac OS menu bar, activity bar, explorer with a working `FileTree`, tabs, editor, right rail with `ProjectModal` cards driven by real project data, an animated `TextType` headline, and an embedded Apple-style `SpotlightSearch` (`⌘K`).
+16.2.6 (App Router, Turbopack)
 
-2. **`ScrollRevealCurtain` → `SplineSceneBasic`**
-   A black curtain peels away to reveal a Spline 3D scene with a `Spotlight` sweep. The Spline runtime is lazy-loaded behind an `IntersectionObserver` so the ~2 MB WebAssembly bundle never ships until the section is scrolled into view.
+Static prerender of the single page, image optimization pipeline, font subsetting, route-level code splitting
 
-3. **`StoryScrollDemo`**
-   "About" chapter — long-form copy revealed through scroll-pinned typographic panels (`story-scroll.tsx`) with a `prefers-reduced-motion` opt-out.
+UI runtime
 
-4. **`ScrollWarpPortal`** (Chapter 02 — The Showcase)
-   Pinned section where text warps through a portal effect.
+React
 
-5. **`HeroParallaxDemo` → `HeroParallax`**
-   Three horizontally-translating rows of project cards driven by `useScroll` + `useSpring`. Real project thumbnails (KodaiRateIQ, ProofStack, CyberShield India, etc.) link out to live deploys.
+19.2.4
 
-6. **`ScrollMorphSection` → `ScrollMorphHero`**
-   Scatter → line → circle → bottom-strip flip-card morph animation cycling through every project image.
+Server Components for the root page; Client Components for every scroll-driven scene
 
-7. **`ScrollFoldTransition`** (Chapter 03 — Designed with Intent)
-   Origami-style fold transition between sections.
+Language
 
-8. **`ScrollTiltedGridDemo` → `ScrollTiltedGrid`**
-   Each tile is a `motion` element with its own `useScroll`-driven blur, brightness, contrast, and 3D tilt. Backed by a starfield + dotted-grid + radial gold glow backdrop.
+TypeScript
 
-9. **`CardCarouselDemo`** with `LightRays` backdrop
-   Design portfolio carousel with a custom ogl-based fragment shader projecting low-saturation gold rays from the top of the section.
+5.x (strict)
 
-10. **`ZoomParallaxDemo` → `ZoomParallax`**
-    Sticky 300vh container where seven images zoom independently into the viewport on a single scroll arc.
+All app code is .tsx / .ts under strict: true
 
-11. **`ProfileCard`** (Contact)
-    Tilted holographic business card with pointer-tracked shine, mini avatar, status pill, and a LinkedIn CTA.
+Styling
 
-12. **`FooterDemo` → `Footer`**
-    Brand mark, social grid (LinkedIn, Resume, GitHub, Mail), nav row, and a giant blurred wordmark backdrop.
+Tailwind CSS
 
-A global `MouseFollower` (dual-spring cursor) and a `PageReveal` curtain animate over the whole experience, and a `SmoothScrollProvider` (Lenis) drives the page's scroll.
+4.x
 
----
+Utility-first; theming via @theme tokens in globals.css
 
-## Project structure
+Component primitives
 
-```
+shadcn/ui, Radix
+
+—
+
+Buttons, dialog, tabs, sheet, switch, label
+
+Scroll engine
+
+Lenis
+
+1.3.23
+
+RAF-driven smooth scroll piped into GSAP's ticker so every ScrollTrigger reads from the same time source
+
+Macro animation
+
+GSAP + ScrollTrigger
+
+3.15
+
+Pinning, scrub, timeline choreography (FrameToFullscreen, ScrollWarpPortal, ScrollFoldTransition, ScrollRevealCurtain)
+
+Micro animation
+
+Framer Motion
+
+12.38
+
+Component-level enter/exit, cursor spring, hero parallax, modals
+
+3D scene
+
+Spline (@splinetool/react-spline)
+
+4.1
+
+The "Built Different" hero scene
+
+WebGL shader
+
+ogl
+
+1.0.11
+
+Custom light-rays fragment shader behind the design carousel
+
+3D primitives
+
+three, @react-three/fiber, @react-three/drei
+
+0.184 / 9.6 / 10.7
+
+Available for future scenes
+
+Carousel
+
+Swiper
+
+12.1
+
+Design carousel slider
+
+Fonts
+
+next/font/google — Cormorant Garamond, DM Sans
+
+—
+
+Two weights of Cormorant for display, three of DM Sans for body, all served via the Vercel font CDN
+
+What's on the page
+
+The single route at / is composed of these scenes, in order, all rendered as static HTML on first paint and progressively hydrated:
+
+FrameToFullscreen → VSCodePortfolio
+GSAP pin + perspective tilt that lifts a miniature VS Code window from the page and flattens it into the viewport. The IDE is a full replica — Mac OS menu bar, activity bar, explorer with a working FileTree, tabs, editor, right rail with ProjectModal cards driven by real project data, an animated TextType headline, and an embedded Apple-style SpotlightSearch (⌘K).
+
+ScrollRevealCurtain → SplineSceneBasic
+A black curtain peels away to reveal a Spline 3D scene with a Spotlight sweep. The Spline runtime is lazy-loaded behind an IntersectionObserver so the ~2 MB WebAssembly bundle never ships until the section is scrolled into view.
+
+StoryScrollDemo
+"About" chapter — long-form copy revealed through scroll-pinned typographic panels (story-scroll.tsx) with a prefers-reduced-motion opt-out.
+
+ScrollWarpPortal (Chapter 02 — The Showcase)
+Pinned section where text warps through a portal effect.
+
+HeroParallaxDemo → HeroParallax
+Three horizontally-translating rows of project cards driven by useScroll + useSpring. Real project thumbnails (KodaiRateIQ, ProofStack, CyberShield India, etc.) link out to live deploys.
+
+ScrollMorphSection → ScrollMorphHero
+Scatter → line → circle → bottom-strip flip-card morph animation cycling through every project image.
+
+ScrollFoldTransition (Chapter 03 — Designed with Intent)
+Origami-style fold transition between sections.
+
+ScrollTiltedGridDemo → ScrollTiltedGrid
+Each tile is a motion element with its own useScroll-driven blur, brightness, contrast, and 3D tilt. Backed by a starfield + dotted-grid + radial gold glow backdrop.
+
+CardCarouselDemo with LightRays backdrop
+Design portfolio carousel with a custom ogl-based fragment shader projecting low-saturation gold rays from the top of the section.
+
+ZoomParallaxDemo → ZoomParallax
+Sticky 300vh container where seven images zoom independently into the viewport on a single scroll arc.
+
+ProfileCard (Contact)
+Tilted holographic business card with pointer-tracked shine, mini avatar, status pill, and a LinkedIn CTA.
+
+FooterDemo → Footer
+Brand mark, social grid (LinkedIn, Resume, GitHub, Mail), nav row, and a giant blurred wordmark backdrop.
+
+A global MouseFollower (dual-spring cursor) and a PageReveal curtain animate over the whole experience, and a SmoothScrollProvider (Lenis) drives the page's scroll.
+
+Project structure
+
 .
 ├─ app/
 │  ├─ layout.tsx              Root layout — fonts, viewport, metadata, providers
@@ -160,107 +247,106 @@ A global `MouseFollower` (dual-spring cursor) and a `PageReveal` curtain animate
 ├─ package.json               Dependencies, scripts
 ├─ AGENTS.md / CLAUDE.md      Agent guard-rails (Next.js 16 has breaking changes — read node_modules/next/dist/docs)
 └─ README.md                  You are here
-```
 
----
+Getting started
 
-## Getting started
+Prerequisites
 
-### Prerequisites
+Node.js 20+ (Next.js 16 dropped Node 18)
 
-- Node.js 20+ (Next.js 16 dropped Node 18)
-- pnpm 9+ (the repo ships a `pnpm-lock.yaml` and a `pnpm-workspace.yaml`)
+pnpm 9+ (the repo ships a pnpm-lock.yaml and a pnpm-workspace.yaml)
 
-### Install
+Install
 
-```bash
 pnpm install
-```
 
-### Local development
+Local development
 
-```bash
 pnpm dev
-```
 
-Open <http://localhost:3000>. Turbopack is the default in Next.js 16; HMR is wired through `next dev`. Edit `app/page.tsx` and any imported scene to iterate live.
+Open http://localhost:3000. Turbopack is the default in Next.js 16; HMR is wired through next dev. Edit app/page.tsx and any imported scene to iterate live.
 
-### Production build
+Production build
 
-```bash
 pnpm build
 pnpm start
-```
 
-`pnpm build` runs Turbopack-powered production compilation, type-checks the project with `tsc --noEmit` (via Next), collects route data, and prerenders the single `/` route to static HTML. The output is in `.next/`.
+pnpm build runs Turbopack-powered production compilation, type-checks the project with tsc --noEmit (via Next), collects route data, and prerenders the single / route to static HTML. The output is in .next/.
 
-### Lint
+Lint
 
-```bash
 pnpm lint
-```
 
-ESLint flat config layers `eslint-config-next/core-web-vitals` and `eslint-config-next/typescript`. Lint is decoupled from `next build` (so an in-flight stylistic warning does not block deploys), but the type checker still runs during build and will fail the build on any TS error.
+ESLint flat config layers eslint-config-next/core-web-vitals and eslint-config-next/typescript. Lint is decoupled from next build (so an in-flight stylistic warning does not block deploys), but the type checker still runs during build and will fail the build on any TS error.
 
----
+Architecture decisions
 
-## Architecture decisions
-
-### Single scroll timeline
+Single scroll timeline
 
 The whole experience is driven by one source of truth for time:
 
-- `useLenis` ([`hooks/useLenis.ts`](hooks/useLenis.ts)) instantiates Lenis with `duration: 1.2`, an exponential-ease wheel, and pipes its `scroll` event straight into `ScrollTrigger.update`.
-- The Lenis RAF loop is registered with `gsap.ticker.add(tick)` — *the same `tick` reference is removed in cleanup* (early commits had a leak here where `gsap.ticker.add` and `gsap.ticker.remove` were given different inline closures, so the RAF survived hot-reloads).
-- Every animated section uses GSAP ScrollTrigger or Framer Motion's `useScroll`, both reading from `window.scrollY`, which Lenis now owns. There is no second scroll loop anywhere.
+useLenis (hooks/useLenis.ts) instantiates Lenis with duration: 1.2, an exponential-ease wheel, and pipes its scroll event straight into ScrollTrigger.update.
 
-### Code splitting
+The Lenis RAF loop is registered with gsap.ticker.add(tick) — the same tick reference is removed in cleanup (early commits had a leak here where gsap.ticker.add and gsap.ticker.remove were given different inline closures, so the RAF survived hot-reloads).
 
-- The root `app/page.tsx` is a **Server Component**. Every interactive scene is a Client Component (`"use client"`) imported into it. Next.js automatically code-splits each client component into its own chunk.
-- The Spline runtime (~2 MB compressed, includes WebAssembly for physics + opentype) is wrapped in [`splite.tsx`](components/ui/splite.tsx) with `React.lazy()` + `<Suspense>`. The Spline scene component then guards its render behind an `IntersectionObserver` so the runtime is not even *fetched* until the user scrolls to it.
-- `next.config.ts` declares `experimental.optimizePackageImports` for `framer-motion`, `gsap`, `lucide-react`, `@radix-ui/*`, `@react-three/drei`, and `lenis` — only the named exports actually used get bundled.
+Every animated section uses GSAP ScrollTrigger or Framer Motion's useScroll, both reading from window.scrollY, which Lenis now owns. There is no second scroll loop anywhere.
 
-### Image pipeline
+Code splitting
 
-- `next/image` is used for every non-decorative image, with explicit `sizes` matched to the actual visual width.
-- `next.config.ts` declares `formats: ['image/avif', 'image/webp']` and tuned `deviceSizes` / `imageSizes` arrays, so the heavy PNGs (`oldportfolio-1.png` at 4.5 MB, `profilecard.png` at 4.1 MB) stream as AVIF/WebP at viewport size rather than as raw PNG.
-- A response-header rule applies `Cache-Control: public, max-age=31536000, immutable` to fonts and images.
+The root app/page.tsx is a Server Component. Every interactive scene is a Client Component ("use client") imported into it. Next.js automatically code-splits each client component into its own chunk.
 
-### Fonts
+The Spline runtime (~2 MB compressed, includes WebAssembly for physics + opentype) is wrapped in splite.tsx with React.lazy() + <Suspense>. The Spline scene component then guards its render behind an IntersectionObserver so the runtime is not even fetched until the user scrolls to it.
 
-- Two `next/font/google` families: Cormorant Garamond (display, weights 400/500) and DM Sans (body, weights 400/500/600). Both with `display: 'swap'`.
-- Cormorant has `preload: false` because it appears only in a handful of card titles — eagerly preloading every weight blocks the critical font request for DM Sans.
+next.config.ts declares experimental.optimizePackageImports for framer-motion, gsap, lucide-react, @radix-ui/*, @react-three/drei, and lenis — only the named exports actually used get bundled.
 
-### Cursor & input
+Image pipeline
 
-- `MouseFollower` ([`components/animations/MouseFollower.tsx`](components/animations/MouseFollower.tsx)) uses Framer Motion springs for the outer ring and an inner dot at different stiffness, blended with `mix-blend-difference`.
-- It detects coarse pointers via `matchMedia('(pointer: coarse)')` in a `useEffect` (no SSR mismatches) and short-circuits the whole component on touch devices.
-- Hover-state tracking uses **document-level event delegation** (`mouseover` / `mouseout` with `e.target.closest(...)`) rather than per-element listeners, so links and buttons added later in the scroll lifecycle (modals, spotlight results, project cards) get the hover treatment automatically without re-scanning the DOM.
-- The `mousemove` listener is registered with `{ passive: true }`.
+next/image is used for every non-decorative image, with explicit sizes matched to the actual visual width.
 
-### Mailto / external links
+next.config.ts declares formats: ['image/avif', 'image/webp'] and tuned deviceSizes / imageSizes arrays, so the heavy PNGs (oldportfolio-1.png at 4.5 MB, profilecard.png at 4.1 MB) stream as AVIF/WebP at viewport size rather than as raw PNG.
 
-- The footer and the `⌘K` spotlight detect protocol URLs (`mailto:`, `tel:`, `sms:`) and render plain `<a>` without `target="_blank"`. The earlier behavior — `target="_blank"` on a `mailto:` — opens a blank tab that the OS then tries to redirect, which Safari and some Chromium builds drop silently.
+A response-header rule applies Cache-Control: public, max-age=31536000, immutable to fonts and images.
 
-### Security headers
+Fonts
 
-`next.config.ts` sets:
+Two next/font/google families: Cormorant Garamond (display, weights 400/500) and DM Sans (body, weights 400/500/600). Both with display: 'swap'.
 
-- `X-Content-Type-Options: nosniff`
-- `X-Frame-Options: SAMEORIGIN`
-- `Referrer-Policy: strict-origin-when-cross-origin`
-- `X-DNS-Prefetch-Control: on`
-- `poweredByHeader: false`
+Cormorant has preload: false because it appears only in a handful of card titles — eagerly preloading every weight blocks the critical font request for DM Sans.
 
-### Reduced motion
+Cursor & input
 
-`prefers-reduced-motion: reduce` is honored where motion is critical: `story-scroll.tsx` reads the media query and disables transforms, `scroll-tilted-grid.tsx` swaps to a static layout via Framer's `useReducedMotion`, and the starfield in the tilted grid CSS animation pauses.
+MouseFollower (components/animations/MouseFollower.tsx) uses Framer Motion springs for the outer ring and an inner dot at different stiffness, blended with mix-blend-difference.
 
----
+It detects coarse pointers via matchMedia('(pointer: coarse)') in a useEffect (no SSR mismatches) and short-circuits the whole component on touch devices.
 
-## Build configuration highlights
+Hover-state tracking uses document-level event delegation (mouseover / mouseout with e.target.closest(...)) rather than per-element listeners, so links and buttons added later in the scroll lifecycle (modals, spotlight results, project cards) get the hover treatment automatically without re-scanning the DOM.
 
-```ts
+The mousemove listener is registered with { passive: true }.
+
+Mailto / external links
+
+The footer and the ⌘K spotlight detect protocol URLs (mailto:, tel:, sms:) and render plain <a> without target="_blank". The earlier behavior — target="_blank" on a mailto: — opens a blank tab that the OS then tries to redirect, which Safari and some Chromium builds drop silently.
+
+Security headers
+
+next.config.ts sets:
+
+X-Content-Type-Options: nosniff
+
+X-Frame-Options: SAMEORIGIN
+
+Referrer-Policy: strict-origin-when-cross-origin
+
+X-DNS-Prefetch-Control: on
+
+poweredByHeader: false
+
+Reduced motion
+
+prefers-reduced-motion: reduce is honored where motion is critical: story-scroll.tsx reads the media query and disables transforms, scroll-tilted-grid.tsx swaps to a static layout via Framer's useReducedMotion, and the starfield in the tilted grid CSS animation pauses.
+
+Build configuration highlights
+
 // next.config.ts
 reactStrictMode: true
 poweredByHeader: false
@@ -277,50 +363,57 @@ experimental.optimizePackageImports: [
   '@radix-ui/react-label', '@radix-ui/react-switch',
   '@react-three/drei', 'lenis',
 ]
-```
 
----
-
-## Deployment (Vercel)
+Deployment (Vercel)
 
 The project is configured to deploy zero-config on Vercel:
 
-1. Connect the GitHub repo (`Rohithpranov07/Portfolio-cinematic`) to a Vercel project.
-2. Framework preset: **Next.js** (auto-detected).
-3. Install command: `pnpm install` (auto).
-4. Build command: `pnpm build` (auto).
-5. Output: `.next/` (auto).
-6. Set the `metadataBase` in `app/layout.tsx` to your final deploy URL for correct OG image resolution.
+Connect the GitHub repo (realsameek-collab) to a Vercel project.
 
-Static pages prerender at build time; `next/image` requests are served via Vercel's edge image optimizer.
+Framework preset: Next.js (auto-detected).
 
----
+Install command: pnpm install (auto).
 
-## Conventions
+Build command: pnpm build (auto).
 
-- All scene components use a `"use client"` directive at the top.
-- Server-only logic stays in `app/page.tsx` and `app/layout.tsx`.
-- Animations register on `useLayoutEffect` (to avoid flicker) and clean up via `gsap.context()`.
-- GSAP ScrollTriggers are created inside `gsap.context()` blocks so they're collected and disposed together on unmount.
-- Class-name composition goes through [`lib/utils.ts`](lib/utils.ts) `cn()` (clsx + tailwind-merge).
-- Path alias `@/*` resolves to the project root (see `tsconfig.json`).
+Output: .next/ (auto).
 
----
+Set the metadataBase in app/layout.tsx to your final deploy URL for correct OG image resolution.
 
-## Known constraints
+Static pages prerender at build time; next/image requests are served via Vercel's edge image optimizer.
 
-- The site is desktop-first by design — many scenes (the VS Code IDE, Spline 3D, the horizontal hero parallax) are authored at a 1440-wide canvas. They render on mobile but the design is not flowed for it.
-- `metadataBase` in `app/layout.tsx` currently points at a placeholder Vercel URL; update before going to a custom domain so Open Graph image URLs resolve correctly.
+Conventions
 
----
+All scene components use a "use client" directive at the top.
 
-## Credits
+Server-only logic stays in app/page.tsx and app/layout.tsx.
 
-- Smooth scroll — [Lenis](https://github.com/darkroomengineering/lenis) by darkroom.engineering
-- Animation engines — [GSAP](https://gsap.com/) and [Framer Motion](https://www.framer.com/motion/)
-- 3D scene — [Spline](https://spline.design/)
-- WebGL primitives — [ogl](https://github.com/oframe/ogl)
-- Component primitives — [shadcn/ui](https://ui.shadcn.com/) on [Radix](https://www.radix-ui.com/)
-- Aceternity, motion-primitives, and 21st.dev for several pattern references the scenes were authored against
+Animations register on useLayoutEffect (to avoid flicker) and clean up via gsap.context().
 
-Built with care by **Rohith Pranov** — [LinkedIn](https://www.linkedin.com/in/rohith-pranov/) · [GitHub](https://github.com/Rohithpranov07) · `rohithpranovv@gmail.com`
+GSAP ScrollTriggers are created inside gsap.context() blocks so they're collected and disposed together on unmount.
+
+Class-name composition goes through lib/utils.ts cn() (clsx + tailwind-merge).
+
+Path alias @/* resolves to the project root (see tsconfig.json).
+
+Known constraints
+
+The site is desktop-first by design — many scenes (the VS Code IDE, Spline 3D, the horizontal hero parallax) are authored at a 1440-wide canvas. They render on mobile but the design is not flowed for it.
+
+metadataBase in app/layout.tsx currently points at a placeholder Vercel URL; update before going to a custom domain so Open Graph image URLs resolve correctly.
+
+Credits
+
+Smooth scroll — Lenis by darkroom.engineering
+
+Animation engines — GSAP and Framer Motion
+
+3D scene — Spline
+
+WebGL primitives — ogl
+
+Component primitives — shadcn/ui on Radix
+
+Aceternity, motion-primitives, and 21st.dev for several pattern references the scenes were authored against
+
+Built with care by Abdullah — LinkedIn · GitHub · ameek263@gmail.com
