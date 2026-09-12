@@ -19,7 +19,7 @@ export default function StoryScrollDemo() {
         </div>
         <hr className="my-[2vw] border-none border-t border-black opacity-100" />
         <p className="mt-auto max-w-[50ch] text-[clamp(1rem,2.5vw,2rem)] font-normal leading-relaxed">
-          I'm a CSE student at VIT Vellore who
+          I'm a CSE student at Punjab University who
 doesn't wait to be assigned problems — I find them,
 build for them, and ship. No excuses, no shortcuts,
 just clean systems and real output.

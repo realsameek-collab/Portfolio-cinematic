@@ -77,7 +77,7 @@ export function SplineSceneBasic() {
           </h1>
           <p className="mt-6 text-lg text-neutral-300">
             Welcome. You're not here by accident.
-I'm Rohith — a developer who thinks in systems,
+I'm Abdullah — a developer who thinks in systems,
 designs with intent, and ships things that matter.
 Scroll down. See for yourself.
           </p>

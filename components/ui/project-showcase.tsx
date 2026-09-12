@@ -16,36 +16,12 @@ interface Project {
 
 const projects: Project[] = [
   {
-    title: "RiderShield AI",
+    title: "AmeekAI",
     description:
-      "5-layer smart rider safety system with real-time hazard alerts and flood mapping.",
-    year: "2025",
-    link: "https://github.com/Rohithpranov07/RIDERSHIELD_AI.git",
-    image: "/Ridershieldplan-1.png",
-  },
-  {
-    title: "KodaiRateIQ",
-    description:
-      "AI-powered competitor rate monitoring with Gemini-generated pricing strategies.",
-    year: "2025",
-    link: "https://kodai-rate-iq.vercel.app/",
-    image: "/KodairateIQ.png",
-  },
-  {
-    title: "ProofStack",
-    description:
-      "Multi-signal developer trust platform delivering a single PST Trust Score.",
-    year: "2025",
-    link: "https://github.com/Rohithpranov07/ProofStack.git",
-    image: "/Proofstack-1.png",
-  },
-  {
-    title: "CyberShield India",
-    description:
-      "AI + blockchain digital forensics platform for detecting and anchoring tamper-proof evidence.",
-    year: "2025",
-    link: "https://github.com/Rohithpranov07/cybershield-india.git",
-    image: "/cybershield-1.png",
+      "AI-powered assistant experience built for creative, coding, and productivity workflows.",
+    year: "2026",
+    link: "https://github.com/realsameek-collab/ameek-ai",
+    image: "/ameek-ai-card.svg",
   },
 ];
 

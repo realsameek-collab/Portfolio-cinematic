@@ -301,77 +301,25 @@ const TechIcon = ({ kind }: { kind: string }) => {
 /* ---------- Main component ---------- */
 const featuredProjects: Project[] = [
   {
-    title: "ProofStack",
-    year: "2025",
+    title: "AmeekAI",
+    year: "2026",
     tag: "Product",
     featured: true,
-    desc: "Multi-signal developer trust platform that cross-validates resumes against GitHub forensics and LeetCode behavioral data to deliver a single PST Trust Score in under 30 seconds.",
-    stack: ["FastAPI", "Next.js", "PostgreSQL"],
-    artwork: "linear-gradient(180deg, #1e1b4b 0%, #5b21b6 50%, #ec4899 100%)",
-    image: "/Proofstack-1.png",
+    desc: "A polished AI assistant experience focused on code, creativity, and productivity workflows.",
+    stack: ["Next.js", "TypeScript", "AI UX"],
+    artwork: "linear-gradient(180deg, #1e1b4b 0%, #4c1d95 50%, #7c3aed 100%)",
+    image: "/ameek-ai-card.svg",
     overview:
-      "ProofStack is a multi-signal developer trust platform built to end resume guesswork. It cross-references GitHub commit forensics, LeetCode behavioral patterns, and StackOverflow contributions through a 10-engine algorithmic verification pipeline — producing a single PST Trust Score backed by Shannon entropy, z-score anomaly detection, and pattern analysis. Decisions in under 30 seconds, math instead of gut feel.",
+      "AmeekAI is a focused AI experience for generating ideas, handling technical tasks, and helping users move faster with a clean, modern interface.",
     features: [
-      "10-engine algorithmic verification pipeline",
-      "GitHub commit forensics & anomaly detection",
-      "LeetCode behavioral pattern analysis",
-      "Shannon entropy + z-score scoring",
-      "Sub-30 second trust score generation",
-      "Recruiter-ready candidate reports",
+      "Standalone AI chat experience",
+      "Modern assistant UX",
+      "Creative and productivity workflows",
+      "Fast access to the project repository",
     ],
     links: {
-      github: "https://github.com/Rohithpranov07/ProofStack.git",
-      linkedin: "https://www.linkedin.com/in/rohith-pranov/",
-    },
-  },
-  {
-    title: "KodaiRateIQ",
-    year: "2025",
-    tag: "Product",
-    featured: true,
-    desc: "AI-powered hotel rate intelligence platform that monitors competitor pricing across OTAs and delivers Gemini-generated pricing strategies through a Bloomberg-inspired dashboard.",
-    stack: ["Next.js", "PostgreSQL", "MiMO AI"],
-    artwork: "linear-gradient(180deg, #0c1e3e 0%, #1e3a8a 45%, #7c3aed 100%)",
-    image: "/KodairateIQ.png",
-    overview:
-      "KodaiRateIQ is a hotel rate-intelligence platform that watches competitor pricing across OTAs in real time and translates the signal into action. A Bloomberg-inspired dashboard surfaces rate movements, demand windows, and anomaly alerts — while Gemini-generated strategies tell revenue managers exactly when to flex price and why.",
-    features: [
-      "Real-time multi-OTA rate scraping",
-      "Gemini-driven pricing recommendations",
-      "Bloomberg-style terminal dashboard",
-      "Competitor benchmarking & alerts",
-      "Demand-forecast visualizations",
-      "Revenue strategy export to PDF",
-    ],
-    links: {
-      github: "https://github.com/Rohithpranov07/KodaiRateIQ.git",
-      linkedin: "https://www.linkedin.com/in/rohith-pranov/",
-      live: "https://kodai-rate-iq.vercel.app/",
-    },
-  },
-  {
-    title: "CyberShield India",
-    year: "2025",
-    tag: "Open Source",
-    featured: true,
-    desc: "Law-enforcement-grade digital forensics platform that detects AI-generated media, traces digital footprints, and anchors tamper-proof evidence on the Polygon blockchain.",
-    stack: ["FastAPI", "React", "Blockchain"],
-    artwork: "linear-gradient(180deg, #042f2e 0%, #134e4a 40%, #7c3aed 100%)",
-    image: "/cybershield-1.png",
-    overview:
-      "CyberShield India is a law-enforcement-grade digital forensics platform that detects AI-generated media, traces digital footprints across surfaces, and anchors tamper-proof evidence hashes onto the Polygon blockchain. Built for investigators who need their findings to hold up in a courtroom — chain of custody, audit trail, and cryptographic proof, all baked in.",
-    features: [
-      "Deepfake & AI-generated media detection",
-      "Cross-platform digital footprint tracing",
-      "Polygon blockchain evidence anchoring",
-      "Chain-of-custody audit logs",
-      "Cryptographic tamper-proofing",
-      "Investigator-grade case dashboard",
-    ],
-    links: {
-      github: "https://github.com/Rohithpranov07/cybershield-india.git",
-      linkedin:
-        "https://www.linkedin.com/posts/rohith-pranov_artificialintelligence-blockchain-cybersecurity-activity-7429836126657507329-Qp0L",
+      github: "https://github.com/realsameek-collab/ameek-ai",
+      linkedin: "https://www.linkedin.com/in/abdullah-ashfaq-430523436/",
     },
   },
 ];
@@ -431,7 +379,7 @@ export const VSCodePortfolio: React.FC = () => {
           <div className="py-2.5"><I.stack className="w-5 h-5" /></div>
           <div className="mt-auto flex flex-col items-center gap-3 pb-1">
             <div className="relative">
-              <div className="w-6 h-6 rounded-full bg-gradient-to-br from-[#a78bfa] to-[#6366f1] flex items-center justify-center text-[10px] text-white">R</div>
+              <div className="w-6 h-6 rounded-full bg-gradient-to-br from-[#a78bfa] to-[#6366f1] flex items-center justify-center text-[10px] text-white">A</div>
               <span className="absolute -bottom-0.5 -right-0.5 w-2.5 h-2.5 rounded-full bg-[#3b82f6] text-white text-[8px] flex items-center justify-center">1</span>
             </div>
             <svg viewBox="0 0 16 16" className="w-5 h-5" fill="none" stroke="currentColor"><circle cx="8" cy="8" r="2.2"/><path d="M8 1v2M8 13v2M1 8h2M13 8h2M3 3l1.4 1.4M11.6 11.6 13 13M3 13l1.4-1.4M11.6 4.4 13 3" strokeWidth="1.1"/></svg>
@@ -483,7 +431,7 @@ export const VSCodePortfolio: React.FC = () => {
               <h1 className="text-[104px] leading-[1.05] font-bold tracking-tight" style={{ marginBottom: "16px", marginLeft: "24px" }}>
                 <TextType
                   as="span"
-                  text="Rohith Pranov"
+                  text="Abdullah"
                   loop={false}
                   typingSpeed={160}
                   initialDelay={500}
@@ -524,18 +472,18 @@ export const VSCodePortfolio: React.FC = () => {
 
               {/* Code block — Safari-framed */}
               <Safari_01
-                url="rohithpranov.dev/developer.ts"
+                url="developer.ts"
                 className="mb-12 max-w-[820px]"
                 style={{ marginLeft: "24px", marginRight: "24px", marginBottom: "24px" }}
               >
                 <pre className="px-10 py-9 leading-[2.1] tracking-[0.01em] overflow-hidden font-mono text-[13.5px]">
 {[
 "const developer = {",
-'  name: "Rohith Pranov V",',
-'  role: "Full Stack Developer · AI/ML Engineer · AWS ML Associate · UI/UX Designer",',
-'  skills: ["React", "Next.js", "FastAPI", "Python", "LangGraph", "Flutter", "AWS"],',
-'  focus: "Shipping production-grade AI systems & cloud-native ML pipelines",',
-'  passion: "Intelligent automation, ML engineering & forensic tech",',
+'  name: "Abdullah",',
+'  role: "Full Stack Developer · UI/UX Designer",',
+'  skills: ["React", "Next.js", "TypeScript", "Tailwind", "GSAP", "Three.js"],',
+'  focus: "Shipping polished, production-grade web experiences",',
+'  passion: "Clean systems, motion design & intelligent interfaces",',
 "};",
 "",
 "// Let's build something extraordinary",
@@ -684,7 +632,7 @@ export const VSCodePortfolio: React.FC = () => {
               <section>
                 <SectionLabel>CURRENT STATUS</SectionLabel>
                 <a
-                  href="https://www.linkedin.com/in/rohith-pranov/"
+                  href="https://www.linkedin.com/in/abdullah-ashfaq-430523436/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group relative block overflow-hidden rounded-[16px] border border-[#1a1a1a] transition-all duration-500 hover:border-[#a78bfa]/30 cursor-pointer"
@@ -997,7 +945,9 @@ export const VSCodePortfolio: React.FC = () => {
                   className="flex items-center justify-between"
                   style={{ paddingLeft: "4px", paddingRight: "4px", marginTop: "12px" }}
                 >
-                  <span className="text-[10px] text-[#6a6a6a] tracking-[0.12em] uppercase">3 of 12</span>
+                  <span className="text-[10px] text-[#6a6a6a] tracking-[0.12em] uppercase">
+                    {featuredProjects.length} of {featuredProjects.length}
+                  </span>
                   <span className="flex items-center gap-1.5 text-[10px] text-[#a78bfa] tracking-[0.05em]">
                     scroll to stack
                     <I.mouse className="w-3 h-3" />
@@ -1010,9 +960,9 @@ export const VSCodePortfolio: React.FC = () => {
                 <SectionLabel>QUICK STATS</SectionLabel>
                 <div className="grid grid-cols-3" style={{ gap: "10px" }}>
                   {[
-                    { icon: <I.chat className="w-3.5 h-3.5 text-[#c4b5fd]"/>, n: "10", suffix: "+", l: "Projects" },
-                    { icon: <I.clock className="w-3.5 h-3.5 text-[#c4b5fd]"/>, n: "2", suffix: "y", l: "Experience" },
-                    { icon: <I.stack className="w-3.5 h-3.5 text-[#c4b5fd]"/>, n: "5", suffix: "+", l: "Stacks" },
+                    { icon: <I.chat className="w-3.5 h-3.5 text-[#c4b5fd]"/>, n: "Open", suffix: "", l: "To Work" },
+                    { icon: <I.clock className="w-3.5 h-3.5 text-[#c4b5fd]"/>, n: "Fast", suffix: "", l: "Replies" },
+                    { icon: <I.stack className="w-3.5 h-3.5 text-[#c4b5fd]"/>, n: "Full", suffix: "", l: "Stack" },
                   ].map((s, i) => (
                     <div
                       key={i}
@@ -1057,8 +1007,8 @@ export const VSCodePortfolio: React.FC = () => {
               {/* ===== Footer signature ===== */}
               <section className="pt-2 border-t border-white/[0.04]">
                 <div className="flex items-center justify-between" style={{ paddingTop: "16px" }}>
-                  <span className="text-[10px] text-[#5a5a5a] tracking-[0.18em] uppercase">Crafted in</span>
-                  <span className="text-[10px] text-[#9a9a9a] tracking-[0.08em] font-mono">Bengaluru · IST</span>
+                  <span className="text-[10px] text-[#5a5a5a] tracking-[0.18em] uppercase">Crafted with</span>
+                  <span className="text-[10px] text-[#9a9a9a] tracking-[0.08em] font-mono">Next.js · GSAP · Three.js</span>
                 </div>
               </section>
             </div>

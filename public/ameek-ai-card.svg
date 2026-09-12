@@ -1,0 +1,97 @@
+<svg width="1200" height="800" viewBox="0 0 1200 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="800" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#090B12"/>
+      <stop offset="1" stop-color="#131826"/>
+    </linearGradient>
+    <linearGradient id="sidebar" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1B1D2A"/>
+      <stop offset="1" stop-color="#111522"/>
+    </linearGradient>
+    <linearGradient id="button" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#C084FC"/>
+      <stop offset="1" stop-color="#7C3AED"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="800" fill="url(#bg)"/>
+
+  <rect x="0" y="0" width="260" height="800" fill="url(#sidebar)"/>
+  <rect x="0" y="0" width="260" height="800" stroke="#2A2F3E"/>
+
+  <rect x="26" y="24" width="140" height="18" rx="9" fill="#0F1320"/>
+  <circle cx="46" cy="33" r="6" fill="#F87171"/>
+  <circle cx="66" cy="33" r="6" fill="#FBBF24"/>
+  <circle cx="86" cy="33" r="6" fill="#4ADE80"/>
+
+  <rect x="24" y="70" width="210" height="44" rx="12" fill="#1B1E2D"/>
+  <rect x="40" y="82" width="10" height="10" rx="2" fill="#8B5CF6"/>
+  <text x="63" y="91" fill="#F5F5F5" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700">AmeekAI</text>
+  <rect x="180" y="76" width="34" height="22" rx="11" fill="#1D283B"/>
+  <text x="192" y="92" fill="#A3B4D9" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="600">free</text>
+
+  <rect x="24" y="142" width="210" height="52" rx="14" fill="url(#button)"/>
+  <text x="82" y="175" fill="white" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700">+ New Chat</text>
+
+  <text x="24" y="240" fill="#7C849B" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" letter-spacing="2">RECENTS</text>
+
+  <rect x="24" y="270" width="210" height="42" rx="10" fill="#161B2A" stroke="#2B3244"/>
+  <circle cx="46" cy="291" r="6" fill="#5B647B"/>
+  <text x="62" y="297" fill="#E5E7EB" font-family="Arial, Helvetica, sans-serif" font-size="20">Generate a car image</text>
+
+  <rect x="24" y="320" width="210" height="42" rx="10" fill="#161B2A" stroke="#2B3244"/>
+  <circle cx="46" cy="341" r="6" fill="#5B647B"/>
+  <text x="62" y="347" fill="#E5E7EB" font-family="Arial, Helvetica, sans-serif" font-size="20">Just saying hi</text>
+
+  <rect x="24" y="370" width="210" height="42" rx="10" fill="#161B2A" stroke="#2B3244"/>
+  <circle cx="46" cy="391" r="6" fill="#5B647B"/>
+  <text x="62" y="397" fill="#E5E7EB" font-family="Arial, Helvetica, sans-serif" font-size="20">Just saying hi</text>
+
+  <rect x="24" y="744" width="210" height="40" rx="12" fill="#101521" stroke="#2B3244"/>
+  <circle cx="42" cy="764" r="7" fill="#33D17A"/>
+  <text x="58" y="770" fill="#F9FAFB" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="600">Ameek</text>
+  <rect x="150" y="752" width="64" height="24" rx="12" fill="#1A2332"/>
+  <text x="163" y="769" fill="#A3B4D9" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="700">Free Plan</text>
+  <rect x="220" y="753" width="12" height="12" rx="6" fill="#3B82F6"/>
+
+  <text x="494" y="238" fill="#F5F5F5" font-family="Arial, Helvetica, sans-serif" font-size="58" font-weight="700">AmeekAI</text>
+  <text x="516" y="290" fill="#D4D9E8" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="500">How can I help you?</text>
+  <text x="453" y="334" fill="#8D95AA" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="400">Ask me anything — code, ideas,</text>
+  <text x="460" y="365" fill="#8D95AA" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="400">explanations, or just a quick question.</text>
+
+  <rect x="440" y="405" width="170" height="62" rx="14" fill="#1D2332" stroke="#3A4463"/>
+  <text x="498" y="445" fill="#E4EAF7" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="600">Write a Netflix</text>
+
+  <rect x="628" y="405" width="170" height="62" rx="14" fill="#1D2332" stroke="#3A4463"/>
+  <text x="684" y="445" fill="#E4EAF7" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="600">Explain Reds</text>
+
+  <rect x="816" y="405" width="170" height="62" rx="14" fill="#1D2332" stroke="#3A4463"/>
+  <text x="846" y="445" fill="#E4EAF7" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="600">Build a dashboard</text>
+
+  <rect x="260" y="620" width="870" height="130" rx="20" fill="#121A2A" stroke="#2E3A4F"/>
+  <rect x="280" y="638" width="150" height="42" rx="12" fill="#1A2332" stroke="#3A4463"/>
+  <text x="314" y="666" fill="#E5E7EB" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700">Auto</text>
+
+  <rect x="450" y="638" width="90" height="42" rx="12" fill="#1A2332" stroke="#3A4463"/>
+  <text x="472" y="666" fill="#E5E7EB" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700">Chat</text>
+
+  <rect x="560" y="638" width="96" height="42" rx="12" fill="#1A2332" stroke="#3A4463"/>
+  <text x="577" y="666" fill="#E5E7EB" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700">Coding</text>
+
+  <rect x="676" y="638" width="84" height="42" rx="12" fill="#1A2332" stroke="#3A4463"/>
+  <text x="708" y="666" fill="#E5E7EB" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700">PDF</text>
+
+  <rect x="780" y="638" width="90" height="42" rx="12" fill="#1A2332" stroke="#3A4463"/>
+  <text x="808" y="666" fill="#E5E7EB" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700">PPT</text>
+
+  <rect x="890" y="638" width="88" height="42" rx="12" fill="#1A2332" stroke="#3A4463"/>
+  <text x="920" y="666" fill="#E5E7EB" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700">Vision</text>
+
+  <rect x="998" y="638" width="86" height="42" rx="12" fill="#1A2332" stroke="#3A4463"/>
+  <text x="1024" y="666" fill="#E5E7EB" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700">Search</text>
+
+  <text x="292" y="710" fill="#8B97B2" font-family="Arial, Helvetica, sans-serif" font-size="24">Ask anything...</text>
+
+  <rect x="1070" y="700" width="46" height="46" rx="23" fill="url(#button)"/>
+  <path d="M1092 716L1092 734M1083 725H1101" stroke="white" stroke-width="3" stroke-linecap="round"/>
+</svg>

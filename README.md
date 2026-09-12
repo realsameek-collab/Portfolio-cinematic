@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 Portfolio — Abdullah
+=======
+# Portfolio — Abdullah
+>>>>>>> eb1961d (Portfolio updates before syncing with remote)
 
 A cinematic, scroll-driven personal portfolio built on Next.js 16 (App Router), React 19, Tailwind CSS v4, GSAP ScrollTrigger, Framer Motion, Lenis smooth-scroll, Three.js / Spline, and a handful of custom WebGL shaders. Designed to read like an editorial spread on desktop and to keep its rhythm intact on mobile, with every section choreographed against a single scroll timeline.
 
@@ -260,11 +264,31 @@ Install
 
 pnpm install
 
+<<<<<<< HEAD
 Local development
 
 pnpm dev
 
 Open http://localhost:3000. Turbopack is the default in Next.js 16; HMR is wired through next dev. Edit app/page.tsx and any imported scene to iterate live.
+=======
+### Environment
+
+```bash
+cp .env.example .env.local
+```
+
+Fill in `RESEND_API_KEY` to enable the contact form. Without it the form still
+validates input, but the endpoint returns a clear "not configured" error instead
+of pretending to send. Every key is read server-side only.
+
+### Local development
+
+```bash
+pnpm dev --port 3002
+```
+
+Open <http://localhost:3002>. Turbopack is the default in Next.js 16; HMR is wired through `next dev`. Edit `app/page.tsx` and any imported scene to iterate live.
+>>>>>>> eb1961d (Portfolio updates before syncing with remote)
 
 Production build
 
@@ -368,7 +392,17 @@ Deployment (Vercel)
 
 The project is configured to deploy zero-config on Vercel:
 
+<<<<<<< HEAD
 Connect the GitHub repo (realsameek-collab) to a Vercel project.
+=======
+1. Connect the GitHub repo to a Vercel project.
+2. Framework preset: **Next.js** (auto-detected).
+3. Install command: `pnpm install` (auto).
+4. Build command: `pnpm build` (auto).
+5. Output: `.next/` (auto).
+6. Set `NEXT_PUBLIC_SITE_URL` to the final deploy URL so `metadataBase` resolves OG assets correctly.
+7. Add `RESEND_API_KEY` (and optionally `CONTACT_TO_EMAIL` / `CONTACT_FROM_EMAIL`) so the contact form can send email. See `.env.example`.
+>>>>>>> eb1961d (Portfolio updates before syncing with remote)
 
 Framework preset: Next.js (auto-detected).
 
@@ -390,6 +424,7 @@ Server-only logic stays in app/page.tsx and app/layout.tsx.
 
 Animations register on useLayoutEffect (to avoid flicker) and clean up via gsap.context().
 
+<<<<<<< HEAD
 GSAP ScrollTriggers are created inside gsap.context() blocks so they're collected and disposed together on unmount.
 
 Class-name composition goes through lib/utils.ts cn() (clsx + tailwind-merge).
@@ -417,3 +452,6 @@ Component primitives — shadcn/ui on Radix
 Aceternity, motion-primitives, and 21st.dev for several pattern references the scenes were authored against
 
 Built with care by Abdullah — LinkedIn · GitHub · ameek263@gmail.com
+=======
+Built with care by **Abdullah** — [LinkedIn](https://www.linkedin.com/in/abdullah-ashfaq-430523436/) · [GitHub](https://github.com/realsameek-collab) · [ameek263@gmail.com](mailto:ameek263@gmail.com)
+>>>>>>> eb1961d (Portfolio updates before syncing with remote)

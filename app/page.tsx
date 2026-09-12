@@ -13,6 +13,7 @@ import CardCarouselDemo from "@/components/ui/card-carousel-demo";
 import LightRays from "@/components/ui/LightRays";
 import ZoomParallaxDemo from "@/components/ui/zoom-parallax-demo";
 import ProfileCard from "@/components/ui/ProfileCard";
+import ContactForm from "@/components/ui/contact-form";
 import FooterDemo from "@/components/ui/footer-demo";
 import { ScrollReveal } from "@/components/animations/ScrollReveal";
 
@@ -158,24 +159,55 @@ export default function Home() {
       <ZoomParallaxDemo />
 
       <ScrollReveal className="w-full">
-        <section id="contact" className="min-h-screen w-full flex items-center justify-center bg-black px-6 py-24">
-          <ProfileCard
-            name="Rohith Pranov"
-            title="Software Engineer"
-            handle="rohithpranov"
-            status="Online"
-            contactText="Contact Me"
-            avatarUrl="/profilecard.avif"
-            miniAvatarUrl="/profilecard.avif"
-            iconUrl="/iconpattern.png"
-            grainUrl="/grain.webp"
-            showUserInfo
-            enableTilt
-            enableMobileTilt
-            behindGlowEnabled
-            innerGradient="linear-gradient(145deg,#60496e8c 0%,#71C4FF44 100%)"
-            contactHref="https://www.linkedin.com/in/rohith-pranov/"
+        <section
+          id="contact"
+          className="relative min-h-screen w-full bg-black flex items-center justify-center overflow-hidden"
+          style={{
+            padding: "clamp(60px, 8vh, 104px) clamp(22px, 5vw, 56px)",
+          }}
+        >
+          {/* Restrained backdrop: one soft gold pool behind the card, plus a
+              hairline that ties the section to the chapters above it. */}
+          <div
+            aria-hidden
+            className="pointer-events-none absolute inset-0"
+            style={{
+              background:
+                "radial-gradient(ellipse 55% 50% at 28% 45%, rgba(200,168,130,0.055) 0%, transparent 70%)",
+            }}
           />
+          <span
+            aria-hidden
+            className="pointer-events-none absolute inset-x-0 top-0 h-px"
+            style={{
+              background:
+                "linear-gradient(90deg, transparent, rgba(200,168,130,0.18), transparent)",
+            }}
+          />
+          <div className="relative z-10 w-full max-w-5xl grid grid-cols-1 lg:grid-cols-12 gap-x-14 gap-y-16 items-center justify-items-center">
+            <div className="lg:col-span-5 w-full flex justify-center">
+            <ProfileCard
+              name="Abdullah"
+              title="Software Engineer"
+              handle="abdullah"
+              status="Online"
+              contactText="Email Me"
+              avatarUrl="/profile-placeholder.svg"
+              miniAvatarUrl="/profile-placeholder.svg"
+              iconUrl="/iconpattern.png"
+              grainUrl="/grain.webp"
+              showUserInfo
+              enableTilt
+              enableMobileTilt
+              behindGlowEnabled
+              innerGradient="linear-gradient(145deg,#60496e8c 0%,#71C4FF44 100%)"
+              contactHref="mailto:ameek263@gmail.com"
+            />
+            </div>
+            <div className="lg:col-span-7 w-full flex justify-center lg:justify-end">
+              <ContactForm />
+            </div>
+          </div>
         </section>
       </ScrollReveal>
 

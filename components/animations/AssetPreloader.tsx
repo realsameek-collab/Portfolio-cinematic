@@ -10,11 +10,10 @@ import { useEffect } from "react";
  */
 const RAW_IMAGE_PATHS = [
   // VSCode portfolio top card assets
-  "/KodairateIQ.avif",
-  "/Proofstack-1.avif",
+  "/ameek-ai-card.svg",
 
   // Profile card backgrounds
-  "/profilecard.avif",
+  "/profile-placeholder.svg",
   "/iconpattern.png",
   "/grain.webp",
 ];
@@ -25,10 +24,10 @@ const RAW_IMAGE_PATHS = [
  * likely to request, otherwise the first scroll-into-view still pays for the
  * optimizer transform. We pick two widths that cover most viewports.
  */
-const NEXT_IMAGE_PATHS = [
-  "/KodairateIQ.avif",
-  "/Proofstack-1.avif",
-];
+// SVGs are served unoptimized by next/image (it skips the optimizer for any
+// src ending in .svg), so there is no /_next/image variant worth pre-warming
+// while the project artwork is vector. Add raster paths here if that changes.
+const NEXT_IMAGE_PATHS: string[] = [];
 
 // One width covers most of the page (cards live at ~600-820px); a second
 // width is overkill and doubled the preload payload for marginal gain.

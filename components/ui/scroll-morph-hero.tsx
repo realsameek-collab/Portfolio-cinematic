@@ -98,18 +98,7 @@ const TOTAL_IMAGES = 20;
 const MAX_SCROLL = 3000;
 
 const PROJECT_THUMBS: { src: string; objectPosition: string; link: string }[] = [
-    { src: "/KodairateIQ.avif", objectPosition: "left top", link: "https://kodai-rate-iq.vercel.app/" },
-    { src: "/Proofstack-1.avif", objectPosition: "left top", link: "https://github.com/Rohithpranov07/ProofStack.git" },
-    { src: "/cybershield-1.avif", objectPosition: "left top", link: "https://github.com/Rohithpranov07/cybershield-india.git" },
-    { src: "/oldportfolio-1.avif", objectPosition: "left top", link: "https://portfolio-wheat-zeta-18.vercel.app" },
-    { src: "/Ridershield-1.avif", objectPosition: "center top", link: "https://github.com/Rohithpranov07/RIDERSHIELD_AI.git" },
-    { src: "/Quizwebsite-1.avif", objectPosition: "left top", link: "https://iac-quiz-website.vercel.app" },
-    { src: "/Ridershieldplan-1.avif", objectPosition: "center", link: "https://rider-shield-plan.vercel.app" },
-    { src: "/Cinematch-1.avif", objectPosition: "center", link: "https://cine-match-h8u71tvrb-dharsanhunts-projects.vercel.app/" },
-    { src: "/weatherapp-1.avif", objectPosition: "left top", link: "https://ambientweatherapp.netlify.app" },
-    { src: "/safetydashboard-1.avif", objectPosition: "left top", link: "https://github.com/DharsanHunt/gas-safety-dashboard.git" },
-    { src: "/sentinal-1.avif", objectPosition: "left top", link: "https://github.com/Rohithpranov07/Sentinel.git" },
-    { src: "/Sentryx-1.avif", objectPosition: "center", link: "https://github.com/Rohithpranov07/sentryx.git" },
+    { src: "/ameek-ai-card.svg", objectPosition: "center", link: "https://github.com/realsameek-collab/ameek-ai" },
 ];
 
 // 12 real projects + 8 duplicates (cycled) to fill TOTAL_IMAGES = 20 slots
