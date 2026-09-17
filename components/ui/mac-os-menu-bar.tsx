@@ -285,10 +285,10 @@ const MacOSMenuBar: React.FC<MacOSMenuBarProps> = ({
         }}
       >
         <div
-          className="flex justify-between items-center h-full"
+          className="flex justify-between items-center h-full max-sm:px-4!"
           style={{ paddingLeft: "1.75rem", paddingRight: "1.75rem", gap: "1.5rem" }}
         >
-          <div className="flex items-center min-w-0" style={{ gap: "1.25rem" }}>
+          <div className="flex items-center min-w-0 max-md:overflow-hidden" style={{ gap: "1.25rem" }}>
             <div
               ref={appleLogoRef}
               onClick={handleAppleMenuClick}
@@ -303,7 +303,7 @@ const MacOSMenuBar: React.FC<MacOSMenuBarProps> = ({
             <span className="text-white text-[13px] font-semibold whitespace-nowrap shrink-0">
               {appName}
             </span>
-            <div className="flex items-center" style={{ gap: "1.5rem" }}>
+            <div className="flex items-center max-sm:hidden" style={{ gap: "1.5rem" }}>
               {menus.map((menu) => (
                 <span
                   key={menu.label}

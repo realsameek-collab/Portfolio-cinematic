@@ -168,7 +168,7 @@ export const FrameToFullscreen: React.FC<Props> = ({ titleComponent, children })
           {titleComponent && (
             <div
               ref={titleRef}
-              className="absolute top-[8vh] left-1/2 -translate-x-1/2 z-10 w-full max-w-5xl px-4 text-center"
+              className="absolute top-[8vh] left-1/2 -translate-x-1/2 z-10 w-full max-w-5xl px-4 text-center max-lg:pointer-events-none"
             >
               {titleComponent}
             </div>

@@ -31,7 +31,7 @@ const Safari_01: React.FC<Safari_01Props> = ({
     >
       {/* Safari top bar */}
       <div
-        className="relative flex items-center bg-[#0d0d0d] border-b border-[#1c1c1c]"
+        className="relative flex items-center bg-[#0d0d0d] border-b border-[#1c1c1c] max-lg:px-4!"
         style={{ paddingLeft: "28px", paddingRight: "28px", paddingTop: "18px", paddingBottom: "18px" }}
       >
         {/* Traffic lights */}
@@ -52,7 +52,7 @@ const Safari_01: React.FC<Safari_01Props> = ({
 
         {/* Centered URL pill */}
         <div
-          className="absolute left-1/2 -translate-x-1/2 w-full"
+          className="absolute left-1/2 -translate-x-1/2 w-full max-lg:px-[84px]!"
           style={{ maxWidth: "440px", paddingLeft: "72px", paddingRight: "72px" }}
         >
           <div

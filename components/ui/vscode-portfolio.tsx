@@ -326,6 +326,8 @@ const featuredProjects: Project[] = [
 
 export const VSCodePortfolio: React.FC = () => {
   const [activeProject, setActiveProject] = React.useState<Project | null>(null);
+  // Mobile/tablet only: the Explorer becomes a slide-over panel toggled from the activity bar.
+  const [explorerOpen, setExplorerOpen] = React.useState(false);
   return (
     <div className="w-full h-full bg-[#0a0a0a] text-[#cccccc] flex flex-col overflow-hidden rounded-[6px]"
       style={{ fontFamily: "'SF Pro Text', -apple-system, system-ui, sans-serif", fontSize: 12 }}>
@@ -343,14 +345,14 @@ export const VSCodePortfolio: React.FC = () => {
           <button className="w-5 h-5 flex items-center justify-center"><svg viewBox="0 0 16 16" className="w-3.5 h-3.5"><path d="M6 4l4 4-4 4" stroke="currentColor" strokeWidth="1.4" fill="none" strokeLinecap="round"/></svg></button>
         </div>
         {/* Spotlight search (⌘K) */}
-        <div className="flex-1 max-w-[420px] -ml-10 h-[22px] flex items-center">
+        <div className="flex-1 max-w-[420px] -ml-10 max-lg:min-w-0 h-[22px] flex items-center">
           <SpotlightSearch triggerClassName="w-full h-[22px]" />
         </div>
         {/* Right cluster */}
         <div className="ml-auto flex items-center gap-3 text-[#7a7a7a]">
           <span className="flex items-center gap-1 text-[10px] text-[#bdbdbd]"><span className="w-2 h-2 rounded-full bg-[#3b82f6]"></span>2</span>
           <I.chev className="w-3 h-3 -ml-1" />
-          <div className="flex items-center gap-2 ml-2">
+          <div className="flex items-center gap-2 ml-2 max-sm:hidden">
             <svg viewBox="0 0 16 16" className="w-3.5 h-3.5"><rect x="2" y="3" width="12" height="10" rx="1" stroke="currentColor" fill="none"/><path d="M9 3v10" stroke="currentColor"/></svg>
             <svg viewBox="0 0 16 16" className="w-3.5 h-3.5"><rect x="2" y="3" width="12" height="10" rx="1" stroke="currentColor" fill="none"/><path d="M2 8h12" stroke="currentColor"/></svg>
             <svg viewBox="0 0 16 16" className="w-3.5 h-3.5"><rect x="2" y="3" width="12" height="10" rx="1" stroke="currentColor" fill="none"/><rect x="9" y="3" width="5" height="10" fill="currentColor" opacity=".4"/></svg>
@@ -360,11 +362,24 @@ export const VSCodePortfolio: React.FC = () => {
       </div>
 
       {/* ===== Body ===== */}
-      <div className="flex flex-1 min-h-0">
+      <div className="flex flex-1 min-h-0 max-lg:relative">
         {/* Activity bar */}
-        <div className="w-[44px] bg-[#0a0a0a] border-r border-[#1a1a1a] flex flex-col items-center py-2 shrink-0 text-[#6f6f6f]">
-          <div className="relative w-full flex justify-center py-2 text-white">
-            <span className="absolute left-0 top-0 h-full w-[2px] bg-white"></span>
+        <div className="w-[44px] bg-[#0a0a0a] border-r border-[#1a1a1a] flex flex-col items-center py-2 shrink-0 text-[#6f6f6f] max-lg:relative max-lg:z-40">
+          <div
+            className={`relative w-full flex justify-center py-2 text-white max-lg:cursor-pointer ${explorerOpen ? "" : "max-lg:text-[#9a9a9a]"}`}
+            role="button"
+            tabIndex={0}
+            aria-label="Toggle Explorer"
+            aria-expanded={explorerOpen}
+            onClick={() => setExplorerOpen((o) => !o)}
+            onKeyDown={(e) => {
+              if (e.key === "Enter" || e.key === " ") {
+                e.preventDefault();
+                setExplorerOpen((o) => !o);
+              }
+            }}
+          >
+            <span className={`absolute left-0 top-0 h-full w-[2px] bg-white ${explorerOpen ? "" : "max-lg:hidden"}`}></span>
             <I.files className="w-5 h-5" />
           </div>
           <div className="py-2.5"><I.cube className="w-5 h-5" /></div>
@@ -386,8 +401,21 @@ export const VSCodePortfolio: React.FC = () => {
           </div>
         </div>
 
+        {/* Mobile/tablet backdrop — tap to close the Explorer panel */}
+        {explorerOpen && (
+          <div
+            aria-hidden
+            className="lg:hidden absolute inset-y-0 left-[44px] right-0 z-20 bg-black/55"
+            onClick={() => setExplorerOpen(false)}
+          />
+        )}
+
         {/* Explorer */}
-        <div className="w-[210px] bg-[#0a0a0a] border-r border-[#1a1a1a] shrink-0 flex flex-col">
+        <div
+          className={`w-[210px] bg-[#0a0a0a] border-r border-[#1a1a1a] shrink-0 flex flex-col max-lg:absolute max-lg:inset-y-0 max-lg:left-[44px] max-lg:z-30 max-lg:w-[min(260px,calc(100%-88px))] max-lg:shadow-[18px_0_40px_-12px_rgba(0,0,0,0.8)] max-lg:transition-[transform,opacity] max-lg:duration-300 max-lg:ease-out ${
+            explorerOpen ? "" : "max-lg:-translate-x-full max-lg:opacity-0 max-lg:pointer-events-none"
+          }`}
+        >
           <div className="flex items-center justify-between px-3 pt-3 pb-2">
             <span className="text-[11px] tracking-[0.12em] text-[#9a9a9a]">EXPLORER</span>
             <span className="text-[#6f6f6f]">⋯</span>
@@ -413,9 +441,9 @@ export const VSCodePortfolio: React.FC = () => {
         </div>
 
         {/* Editor + Right panel */}
-        <div className="flex-1 flex min-w-0 bg-[#0d0d0d]">
+        <div className="flex-1 flex min-w-0 bg-[#0d0d0d] max-lg:flex-col max-lg:overflow-y-auto max-lg:overflow-x-hidden max-lg:[scrollbar-width:none] max-lg:[&::-webkit-scrollbar]:hidden">
           {/* Editor */}
-          <div className="flex-1 flex flex-col min-w-0">
+          <div className="flex-1 flex flex-col min-w-0 max-lg:flex-none">
             {/* Tab bar */}
             <div className="h-[30px] bg-[#0a0a0a] border-b border-[#1a1a1a] flex items-center text-[11px] shrink-0">
               <div className="h-full flex items-center gap-2 px-3 bg-[#0d0d0d] border-r border-[#1a1a1a] text-white">
@@ -426,9 +454,9 @@ export const VSCodePortfolio: React.FC = () => {
             </div>
 
             {/* Editor body */}
-            <div className="flex-1 overflow-auto px-20 pt-20 pb-16 min-w-0 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-              <p className="text-[22px] text-[#cfcfcf]" style={{ marginTop: "12px", marginLeft: "24px", marginBottom: "4px" }}>Hi, I&apos;m</p>
-              <h1 className="text-[104px] leading-[1.05] font-bold tracking-tight" style={{ marginBottom: "16px", marginLeft: "24px" }}>
+            <div className="flex-1 overflow-auto px-20 pt-20 pb-16 min-w-0 max-lg:flex-none max-lg:overflow-visible max-lg:px-5! max-lg:pt-4! max-lg:pb-10! sm:max-lg:px-8! [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+              <p className="text-[22px] text-[#cfcfcf] max-lg:ml-0!" style={{ marginTop: "12px", marginLeft: "24px", marginBottom: "4px" }}>Hi, I&apos;m</p>
+              <h1 className="text-[104px] max-lg:text-[clamp(52px,14vw,96px)] leading-[1.05] font-bold tracking-tight max-lg:ml-0!" style={{ marginBottom: "16px", marginLeft: "24px" }}>
                 <TextType
                   as="span"
                   text="Abdullah"
@@ -462,21 +490,21 @@ export const VSCodePortfolio: React.FC = () => {
                   }
                 />
               </h1>
-              <div className="flex items-center text-[15px] text-[#cfcfcf]" style={{ marginBottom: "0px" , marginLeft: "24px"}}>
+              <div className="flex items-center max-lg:flex-wrap text-[15px] text-[#cfcfcf] max-lg:ml-0!" style={{ marginBottom: "0px" , marginLeft: "24px"}}>
                 <svg viewBox="0 0 16 16" className="w-4 h-4 mr-1.5 text-[#a78bfa]" fill="currentColor"><path d="M4 1h6l3 3v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1Z"/></svg>
                 <span className="text-[#a78bfa]">Full Stack Developer</span>
                 <span className="text-[#6f6f6f] mx-2">•</span>
                 <span>building digital experiences</span>
               </div>
-              <p className="text-[15px] text-[#9a9a9a] max-w-[640px]" style={{ marginBottom: "40px", marginLeft: "24px"}}>with clean code and creative thinking.</p>
+              <p className="text-[15px] text-[#9a9a9a] max-w-[640px] max-lg:ml-0!" style={{ marginBottom: "40px", marginLeft: "24px"}}>with clean code and creative thinking.</p>
 
               {/* Code block — Safari-framed */}
               <Safari_01
                 url="developer.ts"
-                className="mb-12 max-w-[820px]"
+                className="mb-12 max-w-[820px] max-lg:mx-0!"
                 style={{ marginLeft: "24px", marginRight: "24px", marginBottom: "24px" }}
               >
-                <pre className="px-10 py-9 leading-[2.1] tracking-[0.01em] overflow-hidden font-mono text-[13.5px]">
+                <pre className="px-10 py-9 leading-[2.1] tracking-[0.01em] overflow-hidden font-mono text-[13.5px] max-lg:leading-[1.9] max-lg:text-[12px] sm:max-lg:text-[13px]">
 {[
 "const developer = {",
 '  name: "Abdullah",',
@@ -495,7 +523,7 @@ export const VSCodePortfolio: React.FC = () => {
 
               {/* Buttons */}
               <div
-                className="flex items-center justify-center"
+                className="flex items-center justify-center max-sm:flex-col max-sm:gap-4!"
                 style={{ gap: "28px", marginBottom: "96px", marginTop: "8px" }}
               >
                 <ButtonCta
@@ -623,7 +651,7 @@ export const VSCodePortfolio: React.FC = () => {
 
           {/* Right panel */}
           <aside
-            className="w-[400px] bg-[#0a0a0a] border-l border-[#1a1a1a] shrink-0 overflow-y-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+            className="w-[400px] bg-[#0a0a0a] border-l border-[#1a1a1a] shrink-0 overflow-y-auto max-lg:w-full max-lg:overflow-visible max-lg:border-l-0 max-lg:border-t max-lg:px-5! sm:max-lg:px-8! [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
             style={{ padding: "44px 32px 40px" }}
           >
             <div style={{ display: "flex", flexDirection: "column", gap: "44px" }}>
@@ -1017,18 +1045,18 @@ export const VSCodePortfolio: React.FC = () => {
       </div>
 
       {/* ===== Status bar ===== */}
-      <div className="h-[26px] bg-[#0a0a0a] border-t border-[#1a1a1a] flex items-center text-[11px] text-[#bdbdbd] shrink-0">
-        <div className="flex items-center gap-4 px-4">
+      <div className="h-[26px] bg-[#0a0a0a] border-t border-[#1a1a1a] flex items-center text-[11px] text-[#bdbdbd] shrink-0 max-lg:whitespace-nowrap">
+        <div className="flex items-center gap-4 px-4 max-sm:gap-3">
           <span className="flex items-center gap-1 text-[#9a9a9a]"><svg viewBox="0 0 16 16" className="w-3 h-3" fill="none" stroke="currentColor"><circle cx="8" cy="8" r="6"/><path d="m5 8 2 2 4-4"/></svg> 0</span>
           <span className="flex items-center gap-1 text-[#9a9a9a]"><I.warn className="w-3 h-3"/> 00</span>
           <span className="px-2 py-[1px] rounded-[3px] bg-[#1a1a1a] text-[#cfcfcf]">No Solution</span>
         </div>
-        <div className="ml-auto flex items-center gap-5 px-4 text-[#9a9a9a]">
-          <span>Ln 1, Col 1</span>
-          <span>Spaces: 2</span>
-          <span>UTF-8</span>
-          <span>LF</span>
-          <span className="flex items-center gap-1">{"{ }"} TypeScript JSX</span>
+        <div className="ml-auto flex items-center gap-5 px-4 text-[#9a9a9a] max-sm:gap-3">
+          <span className="max-sm:hidden">Ln 1, Col 1</span>
+          <span className="max-md:hidden">Spaces: 2</span>
+          <span className="max-md:hidden">UTF-8</span>
+          <span className="max-md:hidden">LF</span>
+          <span className="flex items-center gap-1 max-sm:hidden">{"{ }"} TypeScript JSX</span>
           <span className="flex items-center gap-1 text-[#a78bfa]">⚡ Prettier</span>
         </div>
       </div>
@@ -1042,8 +1070,8 @@ export const VSCodePortfolio: React.FC = () => {
 function CodeLine({ n, line }: { n: number; line: string }) {
   return (
     <div className="flex items-baseline">
-      <span className="inline-block w-10 text-right pr-5 text-[#3a3a3a] select-none tabular-nums">{line ? n : ""}</span>
-      <span className="whitespace-pre">{tokenize(line)}</span>
+      <span className="inline-block w-10 text-right pr-5 text-[#3a3a3a] select-none tabular-nums max-lg:shrink-0 max-lg:w-7">{line ? n : ""}</span>
+      <span className="whitespace-pre max-lg:whitespace-pre-wrap max-lg:break-words max-lg:min-w-0">{tokenize(line)}</span>
     </div>
   );
 }

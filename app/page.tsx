@@ -28,7 +28,7 @@ export default function Home() {
               stagger={0.8}
               textClassName="text-white font-bold tracking-tight inline-block"
               style={{
-                fontSize: "clamp(4.5rem, 10vw, 9.5rem)",
+                fontSize: "clamp(3.5rem, 10vw, 9.5rem)",
                 marginTop: "3rem"
               }}
               scrollRange={[0.05, 0.48]}
