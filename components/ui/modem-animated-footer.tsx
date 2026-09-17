@@ -43,7 +43,7 @@ export const Footer = ({
   return (
     <section className={cn("relative w-full min-h-screen flex flex-col mt-0 overflow-hidden", className)}>
       <footer className="border-t bg-background relative flex-1 flex flex-col">
-        <div className="max-w-7xl w-full flex flex-col mx-auto min-h-screen relative px-6 md:px-12" style={{ paddingTop: "10vh", paddingBottom: "8vh", paddingLeft: "18vh"}}>
+        <div className="max-w-7xl w-full flex flex-col mx-auto min-h-screen relative px-6 md:px-12 max-lg:px-8! max-sm:px-5! max-lg:pb-8!" style={{ paddingTop: "10vh", paddingBottom: "8vh", paddingLeft: "18vh"}}>
           <div className="flex-1 flex flex-col items-center justify-start w-full">
             <div className="w-full flex flex-col items-center">
               <div className="flex flex-col items-center gap-8">
@@ -51,7 +51,7 @@ export const Footer = ({
                   {brandName}
                 </span>
                 <p
-                  className="text-muted-foreground font-medium text-center text-base leading-loose"
+                  className="text-muted-foreground font-medium text-center text-base leading-loose max-lg:whitespace-normal!"
                   style={{ whiteSpace: "nowrap", marginBottom: "32px" }}
                 >
                   {brandDescription}
@@ -60,7 +60,7 @@ export const Footer = ({
 
               {socialLinks.length > 0 && socialLinks.length === navLinks.length ? (
                 <div
-                  className="mt-14 grid"
+                  className="mt-14 grid max-lg:gap-x-4! max-sm:gap-x-2!"
                   style={{
                     gridTemplateColumns: `repeat(${socialLinks.length}, minmax(0, 1fr))`,
                     columnGap: "56px",

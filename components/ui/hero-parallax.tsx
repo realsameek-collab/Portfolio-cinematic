@@ -114,12 +114,12 @@ export const HeroParallax = ({
 export const Header = () => {
   return (
     <div
-      className="max-w-7xl relative mx-auto py-20 md:py-40 px-4 w-full left-0 top-0"
+      className="max-w-7xl relative mx-auto py-20 md:py-40 px-4 w-full left-0 top-0 max-lg:px-8! max-sm:px-5!"
       style={{ paddingTop: "25vh", paddingLeft: "15vh", marginBottom: "20px" }}
     >
       {/* Eyebrow / kicker */}
       <div
-        className="flex items-center text-[11px] uppercase text-neutral-400 dark:text-neutral-500"
+        className="flex items-center max-lg:flex-wrap text-[11px] uppercase text-neutral-400 dark:text-neutral-500"
         style={{ gap: "14px", marginBottom: "28px", letterSpacing: "0.32em" }}
       >
         <span
@@ -195,7 +195,7 @@ export const Header = () => {
 
       {/* Meta row */}
       <div
-        className="flex items-center text-[11px] uppercase text-neutral-500"
+        className="flex items-center max-lg:flex-wrap text-[11px] uppercase text-neutral-500"
         style={{ gap: "18px", marginTop: "40px", letterSpacing: "0.28em" }}
       >
         <span>2024 — Present</span>

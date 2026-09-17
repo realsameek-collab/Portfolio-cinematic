@@ -291,7 +291,7 @@ export default function IntroAnimation({ scrollProgress }: IntroAnimationProps =
         <div ref={containerRef} className="relative w-full h-full bg-[#FAFAFA] overflow-hidden">
             <div className="flex h-full w-full flex-col items-center justify-center perspective-1000">
 
-                <div className="absolute z-0 flex flex-col items-center justify-center text-center pointer-events-none top-1/2 -translate-y-1/2">
+                <div className="absolute z-0 flex flex-col items-center justify-center text-center pointer-events-none top-1/2 -translate-y-1/2 max-md:px-8!">
                     <motion.h1
                         initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
                         animate={introPhase === "circle" && morphValue < 0.5 ? { opacity: 1 - morphValue * 2, y: 0, filter: "blur(0px)" } : { opacity: 0, filter: "blur(10px)" }}
@@ -312,7 +312,7 @@ export default function IntroAnimation({ scrollProgress }: IntroAnimationProps =
 
                 <motion.div
                     style={{ opacity: contentOpacity, y: contentY }}
-                    className="absolute top-[10%] z-10 flex flex-col items-center justify-center text-center pointer-events-none px-4"
+                    className="absolute top-[10%] z-10 flex flex-col items-center justify-center text-center pointer-events-none px-4 max-md:px-6!"
                 >
                     <h2
                         className="text-3xl md:text-5xl font-semibold text-gray-900"

@@ -80,7 +80,7 @@ export function ProjectShowcase() {
       id="flagship"
       ref={containerRef}
       onMouseMove={handleMouseMove}
-      className="relative w-full mx-auto px-8 py-24 flex flex-col items-center justify-center scroll-mt-12"
+      className="relative w-full mx-auto px-8 py-24 flex flex-col items-center justify-center scroll-mt-12 max-md:px-5! max-md:py-16!"
     >
       <h2 className="text-muted-foreground text-sm font-medium tracking-[0.3em] uppercase mb-16 text-center">
         Flagship Projects
@@ -130,7 +130,7 @@ export function ProjectShowcase() {
             onMouseEnter={() => handleMouseEnter(index)}
             onMouseLeave={handleMouseLeave}
           >
-            <div className="relative py-6 px-6 rounded-xl transition-all duration-300 ease-out">
+            <div className="relative py-6 px-6 rounded-xl transition-all duration-300 ease-out max-md:p-4!">
               <div
                 className={`
                   absolute inset-0 bg-secondary/50 rounded-xl
@@ -139,7 +139,7 @@ export function ProjectShowcase() {
                 `}
               />
 
-              <div className="relative flex items-center justify-between gap-12">
+              <div className="relative flex items-center justify-between gap-12 max-md:gap-4">
                 <div className="flex-1 min-w-0">
                   <div className="inline-flex items-center gap-3">
                     <h3 className="text-foreground font-medium text-3xl md:text-4xl tracking-tight">
