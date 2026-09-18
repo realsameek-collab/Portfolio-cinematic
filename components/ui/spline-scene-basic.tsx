@@ -70,7 +70,7 @@ export function SplineSceneBasic() {
       )}
 
       <div className="flex h-full">
-        <div className="flex-1 py-16 relative z-10 flex flex-col justify-center items-end pr-12 pointer-events-none max-md:absolute max-md:inset-0 max-md:z-20 max-md:items-start max-md:justify-end max-md:px-6! max-md:pb-[14vh]! max-md:bg-gradient-to-t max-md:from-black/95 max-md:via-black/70 max-md:to-transparent">
+        <div className="flex-1 py-16 relative z-10 flex flex-col justify-center items-end pr-12 pointer-events-none max-lg:absolute max-lg:inset-0 max-lg:z-20 max-lg:items-start max-lg:justify-center max-lg:px-6! max-lg:py-[8vh]! max-lg:bg-gradient-to-t max-lg:from-black/92 max-lg:via-black/78 max-lg:to-black/25">
           <div className="max-w-lg w-full">
           <h1 className="text-5xl md:text-7xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400">
             Built Different.
